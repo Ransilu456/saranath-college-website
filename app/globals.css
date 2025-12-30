@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --heroui-default-100: 240 4.76% 95.88%;
+  --heroui-default-700: 240 5.26% 26.08%;
 }
 
 @theme inline {
@@ -12,15 +14,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.bg-default-100 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--heroui-default-100) / var(--tw-bg-opacity, 1));
+}
+
+.text-default-700 {
+  --tw-text-opacity: 1;
+  color: hsl(var(--heroui-default-700) / var(--tw-text-opacity, 1));
 }
