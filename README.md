@@ -27,8 +27,3 @@ A modern, responsive website for my school, built using **Next.js**. This projec
 - **Styling:** CSS / Tailwind CSS / SCSS (depending on implementation)  
 - **Icons:** Lucide React / Any React Icon library  
 - **Deployment:** Vercel / Netlify (optional)
-
----
-
-## 📁 Project Structure
-
