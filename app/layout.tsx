@@ -1,4 +1,5 @@
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
@@ -25,7 +26,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
       <body className="bg-slate-50 text-slate-600 antialiased selection:bg-amber-100 selection:text-amber-900 flex flex-col min-h-screen font-sans">
         {/* <ToastProvider> */}
+        <Header />
         {children}
+        <Footer />
         {/* </ToastProvider> */}
       </body>
     </html>

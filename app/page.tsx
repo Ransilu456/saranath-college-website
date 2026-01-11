@@ -16,7 +16,6 @@ import Header from "@/components/layout/Header";
 export default function Home() {
   return (
     <main>
-      <Header/>
       <NewsTicker />
       <Hero />
       <Stats />
@@ -29,7 +28,6 @@ export default function Home() {
       <Testimonials />
       <NewsEvents />
       <CtaStrip />
-      <Footer />
     </main>
   );
 }

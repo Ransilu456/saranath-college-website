@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ShieldCheck, Search, Menu, X, ChevronDown } from "lucide-react";
 import TopBar from "./TopBar";
+import SearchModal from "@/components/ui/SearchModal";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -20,6 +22,7 @@ export default function Header() {
     return (
         <>
             <TopBar />
+            <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
             <header
                 className={`bg-white sticky top-0 z-50 border-t-4 border-amber-600 transition-all duration-300 ${scrolled ? "shadow-md" : "shadow-sm"
                     }`}
@@ -53,9 +56,9 @@ export default function Header() {
                                     Home
                                 </Link>
                                 <div className="relative group h-full">
-                                    <button className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 flex items-center gap-1 rounded-md transition-colors">
+                                    <Link href="/about" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 flex items-center gap-1 rounded-md transition-colors">
                                         About <ChevronDown className="w-3 h-3" strokeWidth={1.5} />
-                                    </button>
+                                    </Link>
                                 </div>
                                 <Link
                                     href="#administration"
@@ -76,17 +79,20 @@ export default function Header() {
                                     Clubs & Sports
                                 </Link>
                                 <Link
-                                    href="#news"
+                                    href="/news"
                                     className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors"
                                 >
                                     News
                                 </Link>
                             </div>
-                            <button className="text-slate-500 hover:text-amber-600 p-2 transition-colors">
+                            <button
+                                onClick={() => setIsSearchOpen(true)}
+                                className="text-slate-500 hover:text-amber-600 p-2 transition-colors"
+                            >
                                 <Search className="w-5 h-5" strokeWidth={1.5} />
                             </button>
                             <Link
-                                href="#application"
+                                href="/admissions"
                                 className="ml-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded hover:bg-slate-800 transition-colors border-b-2 border-amber-600 shadow-sm"
                             >
                                 Admissions
@@ -118,6 +124,12 @@ export default function Header() {
                                 Home
                             </Link>
                             <Link
+                                href="/about"
+                                className="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md"
+                            >
+                                About
+                            </Link>
+                            <Link
                                 href="#administration"
                                 className="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md"
                             >
@@ -136,13 +148,13 @@ export default function Header() {
                                 Clubs & Sports
                             </Link>
                             <Link
-                                href="#news"
+                                href="/news"
                                 className="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md"
                             >
                                 News
                             </Link>
                             <Link
-                                href="#application"
+                                href="/admissions"
                                 className="mt-2 text-center px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded"
                             >
                                 Admissions
