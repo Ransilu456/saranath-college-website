@@ -1,56 +1,59 @@
 "use client";
 
-import { InputHTMLAttributes, useState } from "react";
+import * as React from "react";
 import { Eye, EyeOff } from "lucide-react";
 
-
-type InputVariant =
-  | "primary"
-  | "secondary"
-  | "outline"
-  | "ghost"
-  | "secondary-light";
-
-type InputState = "default" | "error" | "success";
-
-interface InputProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, "size"> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   helperText?: string;
-  variant?: InputVariant;
-  state?: InputState;
+  error?: boolean;
 }
 
-export default function Input({ label, helperText, variant = "primary",  state = "default", type = "text", className = "", ...props }: InputProps) {
-  const [show, setShow] = useState(false);
-  const isPassword = type === "password";
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, label, helperText, error, ...props }, ref) => {
+    const [showPassword, setShowPassword] = React.useState(false);
+    const isPassword = type === "password";
 
-  return (
-    <div className="input-wrapper">
-      {label && <label className="input-label">{label}</label>}
-
-      <div className="input-field">
-        <input {...props} type={isPassword && show ? "text" : type} data-variant={variant} data-state={state !== "default" ? state : undefined} className={`input-base ${isPassword ? "pr-10" : ""} ${className}`}/>
-
-        {isPassword && (
-          <button
-            type="button"
-            className="input-toggle"
-            onClick={() => setShow(!show)}
-          >
-            {show ? <EyeOff size={16} /> : <Eye size={16} />}
-          </button>
+    return (
+      <div className="w-full space-y-2">
+        {label && (
+          <label className="text-sm font-medium text-muted-foreground leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+            {label}
+          </label>
+        )}
+        <div className="relative">
+          <input
+            type={isPassword && showPassword ? "text" : type}
+            className={`
+              flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground 
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 
+              disabled:cursor-not-allowed disabled:opacity-50
+              transition-all duration-200
+              ${error ? "border-destructive focus-visible:ring-destructive" : "hover:border-accent-foreground/20"}
+              ${className}
+            `}
+            ref={ref}
+            {...props}
+          />
+          {isPassword && (
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+            >
+              {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+            </button>
+          )}
+        </div>
+        {helperText && (
+          <p className={`text-xs ${error ? "text-destructive" : "text-muted-foreground"}`}>
+            {helperText}
+          </p>
         )}
       </div>
+    );
+  }
+);
+Input.displayName = "Input";
 
-      {helperText && (
-        <span
-          className="input-helper"
-          data-state={state !== "default" ? state : undefined}
-        >
-          {helperText}
-        </span>
-      )}
-    </div>
-  );
-}
+export default Input;

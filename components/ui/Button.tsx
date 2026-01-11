@@ -1,41 +1,51 @@
 "use client";
 
-import { ButtonHTMLAttributes } from "react";
+import * as React from "react";
+import { Loader2 } from "lucide-react";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "secondary-light";
+type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "destructive" | "slate" | "amber";
+type ButtonSize = "sm" | "md" | "lg";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant;
+    size?: ButtonSize;
+    isLoading?: boolean;
 }
 
-export default function Button({ variant = "primary", children, className = "", ...props }: ButtonProps) {
-    let variantClasses = "";
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+    ({ className = "", variant = "primary", size = "md", isLoading = false, children, disabled, ...props }, ref) => {
 
-    switch (variant) {
-        case "secondary":
-            variantClasses = "bg-default-300 text-default-700";
-            break;
+        const baseStyles = "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background";
 
-        case "outline":
-            variantClasses =
-                "bg-transparent border border-default-700 text-default-700";
-            break;
+        const variants = {
+            primary: "bg-slate-900 text-white hover:bg-slate-800 shadow-sm",
+            secondary: "bg-amber-600 text-white hover:bg-amber-500 shadow-sm",
+            slate: "bg-slate-900 text-white hover:bg-slate-800 shadow-sm",
+            amber: "bg-amber-600 text-white hover:bg-amber-500 shadow-sm",
+            outline: "border border-slate-200 bg-white hover:bg-slate-50 text-slate-700",
+            ghost: "hover:bg-slate-100 hover:text-slate-900",
+            destructive: "bg-red-600 text-white hover:bg-red-700",
+        };
 
-        case "ghost":
-            variantClasses = "bg-transparent text-default-700";
-            break;
+        const sizes = {
+            sm: "h-9 px-3",
+            md: "h-10 py-2 px-4",
+            lg: "h-11 px-8 text-base",
+        };
 
-        case "secondary-light":
-            variantClasses = "px-4 py-1 font-medium"; 
-            break;
-
-        default:
-            variantClasses = "bg-primary text-primary-foreground";
+        return (
+            <button
+                ref={ref}
+                className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+                disabled={disabled || isLoading}
+                {...props}
+            >
+                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                {children}
+            </button>
+        );
     }
+);
+Button.displayName = "Button";
 
-    return (
-        <button {...props} data-variant={variant} className={` btn-sweep inline-flex items-center justify-center px-6 py-3 text-sm font-medium uppercase tracking-wide  transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer ${variantClasses} ${className} `}>
-            <span>{children}</span>
-        </button>
-    );
-}
+export default Button;

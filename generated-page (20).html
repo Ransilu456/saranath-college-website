@@ -1,0 +1,867 @@
+<html lang="en" classname="scroll-smooth"><head></head><body classname="bg-slate-50 text-slate-600 antialiased selection:bg-amber-100 selection:text-amber-900 flex flex-col min-h-screen">jsx
+import React, { useState, useEffect } from 'react';
+
+export default function SaranathCollege() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() =&gt; {
+    const handleScroll = () =&gt; {
+      setScrolled(window.scrollY &gt; 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () =&gt; window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    
+      
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Saranath College - Wisdom &amp; Virtue</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+        <style>{`
+          body {
+            font-family: 'Inter', sans-serif;
+            font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+          }
+          h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+          }
+          .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+          }
+          .marquee-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+          }
+          @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+          }
+          ::-webkit-scrollbar {
+            width: 8px;
+          }
+          ::-webkit-scrollbar-track {
+            background: #f8fafc;
+          }
+          ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+          }
+          ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+          }
+        `}</style>
+      
+      
+
+        {/* Top Bar */}
+        <div classname="bg-slate-900 text-slate-300 text-xs py-2 border-b border-slate-700">
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div classname="flex items-center gap-4">
+              <span classname="flex items-center gap-1"><iconify-icon icon="lucide:phone" width="12" stroke-width="1.5"></iconify-icon> +94 11 234 5678</span>
+              <span classname="flex items-center gap-1"><iconify-icon icon="lucide:mail" width="12" stroke-width="1.5"></iconify-icon> info@saranath.lk</span>
+            </div>
+            <div classname="flex items-center gap-4">
+              <a href="#" classname="hover:text-amber-500 transition-colors">LMS Login</a>
+              <span classname="text-slate-700">|</span>
+              <a href="#" classname="hover:text-amber-500 transition-colors">Parent Portal</a>
+              <span classname="text-slate-700">|</span>
+              <a href="#" classname="hover:text-amber-500 transition-colors">Alumni (OBA)</a>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Header */}
+        <header classname="{`bg-white" sticky="" top-0="" z-50="" border-t-4="" border-amber-600="" transition-all="" duration-300="" ${scrolled="" ?="" 'shadow-md'="" :="" 'shadow-sm'}`}="">
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div classname="flex justify-between items-center h-20 md:h-24">
+
+              {/* School Logo &amp; Name */}
+              <a href="#" classname="flex items-center gap-4 group">
+                <div classname="relative">
+                  <div classname="w-12 h-12 md:w-16 md:h-16 bg-slate-900 text-amber-500 rounded-full flex items-center justify-center border-2 border-amber-500 shadow-md transition-transform group-hover:scale-105">
+                    <iconify-icon icon="lucide:shield-check" width="32" stroke-width="1.5"></iconify-icon>
+                  </div>
+                </div>
+                <div classname="flex flex-col">
+                  <h1 classname="text-2xl md:text-3xl font-semibold text-slate-900 font-serif leading-none tracking-tight group-hover:text-amber-700 transition-colors">Saranath College</h1>
+                  <span classname="text-[10px] md:text-xs font-medium text-amber-600 uppercase tracking-widest mt-1">Est. 1924 | Colombo, Sri Lanka</span>
+                </div>
+              </a>
+
+              {/* Desktop Navigation */}
+              <nav classname="hidden lg:flex items-center gap-1">
+                <div classname="flex items-center gap-1 mr-4">
+                  <a href="#" classname="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors">Home</a>
+                  <div classname="relative group h-full">
+                    <button classname="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 flex items-center gap-1 rounded-md transition-colors">
+                      About <iconify-icon icon="lucide:chevron-down" width="12" stroke-width="1.5"></iconify-icon>
+                    </button>
+                  </div>
+                  <a href="#administration" classname="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors">Administration</a>
+                  <a href="#academics" classname="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors">Academics</a>
+                  <a href="#clubs" classname="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors">Clubs &amp; Sports</a>
+                  <a href="#news" classname="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors">News</a>
+                </div>
+                <button classname="text-slate-500 hover:text-amber-600 p-2 transition-colors">
+                  <iconify-icon icon="lucide:search" width="20" stroke-width="1.5"></iconify-icon>
+                </button>
+                <a href="#application" classname="ml-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded hover:bg-slate-800 transition-colors border-b-2 border-amber-600 shadow-sm">
+                  Admissions
+                </a>
+              </nav>
+
+              {/* Mobile Menu Button */}
+              <button onclick="{()" ==""> setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="lg:hidden p-2 text-slate-600 hover:text-slate-900"
+              &gt;
+                <iconify-icon icon="{isMobileMenuOpen" ?="" "lucide:x"="" :="" "lucide:menu"}="" width="28" stroke-width="1.5"></iconify-icon>
+              </button>
+            </div>
+          </div>
+          
+          {/* Mobile Menu Dropdown */}
+          {isMobileMenuOpen &amp;&amp; (
+            <div classname="lg:hidden bg-white border-t border-slate-100 p-4 absolute w-full shadow-lg">
+              <div classname="flex flex-col space-y-2">
+                <a href="#" classname="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md">Home</a>
+                <a href="#administration" classname="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md">Administration</a>
+                <a href="#academics" classname="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md">Academics</a>
+                <a href="#clubs" classname="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md">Clubs &amp; Sports</a>
+                <a href="#news" classname="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md">News</a>
+                <a href="#application" classname="mt-2 text-center px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded">Admissions</a>
+              </div>
+            </div>
+          )}
+        </header>
+
+        {/* News Ticker */}
+        <div classname="bg-amber-50 border-b border-amber-100 py-2.5 overflow-hidden">
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-4">
+            <span classname="flex items-center gap-1.5 text-[10px] font-semibold bg-amber-600 text-white px-2 py-0.5 rounded border border-amber-700/20 shrink-0 uppercase tracking-wide shadow-sm">
+              <iconify-icon icon="lucide:bell" width="10"></iconify-icon> Latest
+            </span>
+            <div classname="marquee-container w-full">
+              <div classname="marquee-content text-xs md:text-sm font-medium text-slate-800 flex gap-8">
+                <span>Grade 1 Admissions for 2025 are now open until August 30th</span>
+                <span classname="text-amber-400">•</span>
+                <span>Annual Sports Meet Postponed to next Friday due to weather</span>
+                <span classname="text-amber-400">•</span>
+                <span>Congratulations to the Under-19 Cricket Team for reaching the finals!</span>
+                <span classname="text-amber-400">•</span>
+                <span>O/L Results released: Saranath College achieves 98% pass rate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Section */}
+        <section classname="relative h-[600px] bg-slate-900 flex items-center overflow-hidden">
+          <div classname="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="School Building" classname="w-full h-full object-cover opacity-30 scale-105 animate-[pulse_10s_ease-in-out_infinite]">
+            <div classname="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent"></div>
+            <div classname="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-900 to-transparent"></div>
+          </div>
+
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div classname="max-w-3xl border-l-4 border-amber-500 pl-8 md:pl-10 py-2">
+              <div classname="flex items-center gap-2 mb-4">
+                <span classname="flex h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
+                <span classname="text-amber-400 font-medium tracking-wider uppercase text-xs md:text-sm">Welcome to Saranath College</span>
+              </div>
+              <h2 classname="text-5xl md:text-7xl font-serif font-semibold text-white leading-[1.1] mb-6 tracking-tight">
+                A Legacy of <br>
+                <span classname="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">Excellence &amp; Virtue</span>
+              </h2>
+              <p classname="text-lg text-slate-300 mb-10 leading-relaxed max-w-xl font-light">
+                Nurturing the next generation of leaders with traditional values and modern education. Join a century-old brotherhood of achievement.
+              </p>
+              <div classname="flex flex-col sm:flex-row gap-4">
+                <a href="#application" classname="px-8 py-3.5 bg-amber-600 text-white text-sm font-medium rounded hover:bg-amber-500 transition-all shadow-lg shadow-amber-900/20 flex items-center justify-center gap-2">
+                  Apply Now <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+                </a>
+                <a href="#" classname="px-8 py-3.5 bg-white/5 backdrop-blur-sm border border-white/20 text-white text-sm font-medium rounded hover:bg-white/10 transition-colors flex items-center justify-center gap-2">
+                  <iconify-icon icon="lucide:play-circle" width="18" classname="text-amber-400"></iconify-icon>
+                  School Anthem
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section classname="py-12 bg-white border-b border-slate-100 relative z-20 -mt-8 mx-4 md:mx-auto max-w-7xl rounded-xl shadow-xl shadow-slate-200/50">
+          <div classname="grid grid-cols-2 md:grid-cols-4 gap-8 px-6">
+            <div classname="text-center group cursor-default">
+              <div classname="text-3xl md:text-4xl font-serif font-semibold text-slate-900 mb-1 group-hover:text-amber-600 transition-colors">98%</div>
+              <div classname="text-[10px] md:text-xs font-semibold text-slate-400 uppercase tracking-widest">Pass Rate</div>
+            </div>
+            <div classname="text-center group cursor-default border-l border-slate-100">
+              <div classname="text-3xl md:text-4xl font-serif font-semibold text-slate-900 mb-1 group-hover:text-amber-600 transition-colors">3500+</div>
+              <div classname="text-[10px] md:text-xs font-semibold text-slate-400 uppercase tracking-widest">Students</div>
+            </div>
+            <div classname="text-center group cursor-default border-l border-slate-100">
+              <div classname="text-3xl md:text-4xl font-serif font-semibold text-slate-900 mb-1 group-hover:text-amber-600 transition-colors">150+</div>
+              <div classname="text-[10px] md:text-xs font-semibold text-slate-400 uppercase tracking-widest">Teachers</div>
+            </div>
+            <div classname="text-center group cursor-default border-l border-slate-100">
+              <div classname="text-3xl md:text-4xl font-serif font-semibold text-slate-900 mb-1 group-hover:text-amber-600 transition-colors">40+</div>
+              <div classname="text-[10px] md:text-xs font-semibold text-slate-400 uppercase tracking-widest">Clubs &amp; Sports</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Principal's Message Section */}
+        <section classname="py-24 bg-white" id="administration">
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div classname="flex flex-col md:flex-row gap-16 items-center">
+              <div classname="w-full md:w-5/12 relative group">
+                <div classname="aspect-[3/4] rounded-lg overflow-hidden border border-slate-200 shadow-2xl relative z-10">
+                  <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&amp;w=1974&amp;auto=format&amp;fit=crop" alt="Principal" classname="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div classname="absolute -bottom-6 -right-6 w-48 h-48 bg-amber-50 rounded-full -z-0"></div>
+                <div classname="absolute -top-6 -left-6 w-48 h-48 bg-slate-50 rounded-full -z-0"></div>
+                <div classname="absolute bottom-8 left-8 z-20 bg-white/95 backdrop-blur p-4 rounded shadow-lg border-l-4 border-amber-500 max-w-[200px]">
+                  <p classname="text-lg font-serif font-semibold text-slate-900">Mr. K. Perera</p>
+                  <p classname="text-xs text-slate-500 font-medium uppercase tracking-wide">Principal</p>
+                </div>
+              </div>
+
+              <div classname="w-full md:w-7/12">
+                <div classname="inline-flex items-center gap-2 px-3 py-1 bg-amber-50 text-amber-700 text-[10px] font-semibold uppercase tracking-wider rounded-full mb-6 border border-amber-100">
+                  <iconify-icon icon="lucide:quote" width="12"></iconify-icon> From the Desk of the Principal
+                </div>
+                <h2 classname="text-4xl md:text-5xl font-serif font-semibold text-slate-900 mb-6 leading-tight tracking-tight">Building Character, <br><span classname="text-slate-400 italic font-normal">Inspiring Greatness.</span></h2>
+                <div classname="space-y-6 text-slate-600 text-lg leading-relaxed font-light">
+                  <p>
+                    "Welcome to Saranath College. For over 100 years, we have stood as a beacon of education in Sri Lanka. Our mission goes beyond textbooks; we strive to mold disciplined, honorable, and capable young men who will serve our motherland with distinction."
+                  </p>
+                  <p>
+                    We continue to adapt to the changing world while holding fast to the traditions that define us. Whether it is in the classroom, on the rugby field, or in the debating hall, a Saranath student strives for nothing less than the best.
+                  </p>
+                </div>
+                <div classname="mt-8 flex items-center gap-4">
+                  <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/917d6f93-fb36-439a-8c48-884b67b35381_1600w.jpg" alt="Signature" classname="h-12 opacity-40">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Quick Links &amp; School Life Grid */}
+        <section classname="py-20 bg-slate-50 border-y border-slate-200">
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div classname="text-center mb-16">
+              <span classname="text-amber-600 font-semibold tracking-widest text-xs uppercase block mb-2">Discover</span>
+              <h2 classname="text-3xl md:text-4xl font-serif font-semibold text-slate-900 tracking-tight">Life at Saranath</h2>
+            </div>
+
+            <div classname="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <a href="#" classname="group bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-lg hover:border-amber-200 transition-all text-center hover:-translate-y-1">
+                <div classname="w-16 h-16 mx-auto bg-slate-50 text-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
+                  <iconify-icon icon="lucide:landmark" width="28" stroke-width="1.5"></iconify-icon>
+                </div>
+                <h3 classname="font-serif font-semibold text-lg mb-2 text-slate-900">Our History</h3>
+                <p classname="text-sm text-slate-500 leading-relaxed">Founded in 1924, exploring our rich heritage and traditions.</p>
+              </a>
+
+              <a href="#" classname="group bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-lg hover:border-amber-200 transition-all text-center hover:-translate-y-1">
+                <div classname="w-16 h-16 mx-auto bg-slate-50 text-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
+                  <iconify-icon icon="lucide:users" width="28" stroke-width="1.5"></iconify-icon>
+                </div>
+                <h3 classname="font-serif font-semibold text-lg mb-2 text-slate-900">Administration</h3>
+                <p classname="text-sm text-slate-500 leading-relaxed">Meet the academic staff and board of governors.</p>
+              </a>
+
+              <a href="#" classname="group bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-lg hover:border-amber-200 transition-all text-center hover:-translate-y-1">
+                <div classname="w-16 h-16 mx-auto bg-slate-50 text-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
+                  <iconify-icon icon="lucide:trophy" width="28" stroke-width="1.5"></iconify-icon>
+                </div>
+                <h3 classname="font-serif font-semibold text-lg mb-2 text-slate-900">Sports</h3>
+                <p classname="text-sm text-slate-500 leading-relaxed">Cricket, Rugby, Swimming and Athletics achievements.</p>
+              </a>
+
+              <a href="#" classname="group bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-lg hover:border-amber-200 transition-all text-center hover:-translate-y-1">
+                <div classname="w-16 h-16 mx-auto bg-slate-50 text-slate-700 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-amber-600 group-hover:text-white transition-colors duration-300">
+                  <iconify-icon icon="lucide:medal" width="28" stroke-width="1.5"></iconify-icon>
+                </div>
+                <h3 classname="font-serif font-semibold text-lg mb-2 text-slate-900">Prefects' Guild</h3>
+                <p classname="text-sm text-slate-500 leading-relaxed">Student leadership and the disciplinary committee.</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Bento Grid Features */}
+        <section classname="py-24 bg-white" id="academics">
+          <div classname="max-w-7xl mx-auto px-6">
+            <div classname="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+              <div classname="max-w-xl">
+                <h2 classname="text-3xl md:text-4xl font-serif font-semibold text-slate-900 tracking-tight mb-4">Why choose Saranath?</h2>
+                <p classname="text-slate-500 text-lg">Discover an ecosystem designed for growth, creativity, and academic rigor.</p>
+              </div>
+              <a href="#" classname="text-sm font-medium text-amber-600 hover:text-amber-700 flex items-center gap-1.5 transition-colors group">
+                Learn more about us <iconify-icon icon="lucide:arrow-right" width="16" classname="group-hover:translate-x-1 transition-transform"></iconify-icon>
+              </a>
+            </div>
+
+            <div classname="grid md:grid-cols-3 gap-6 auto-rows-[320px]">
+              {/* Large Card */}
+              <div classname="md:col-span-2 bg-slate-50 rounded-3xl p-8 border border-slate-200 relative overflow-hidden group hover:shadow-lg transition-all duration-500">
+                <div classname="absolute top-0 right-0 w-80 h-80 bg-amber-100/50 rounded-full -mr-20 -mt-20 z-0 transition-transform duration-700 group-hover:scale-110 blur-2xl"></div>
+                <div classname="relative z-10 flex flex-col h-full justify-between">
+                  <div classname="w-14 h-14 bg-white border border-slate-200 rounded-2xl flex items-center justify-center text-amber-600 shadow-sm">
+                    <iconify-icon icon="lucide:flask-conical" width="28" stroke-width="1.5"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 classname="text-2xl font-serif font-semibold text-slate-900 mb-3">World-Class Research Facilities</h3>
+                    <p classname="text-slate-500 max-w-md leading-relaxed">Our laboratories are equipped with cutting-edge technology, fostering an environment where students can pioneer the next big breakthrough in science and technology.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Tall Card */}
+              <div classname="md:row-span-2 bg-slate-900 rounded-3xl p-8 border border-slate-800 shadow-xl relative overflow-hidden group text-white">
+                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" classname="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-40 transition-opacity duration-700 transform group-hover:scale-105" alt="Community">
+                <div classname="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/40 to-slate-950"></div>
+                <div classname="relative z-10 flex flex-col h-full justify-end">
+                  <div classname="mb-auto w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white border border-white/20">
+                    <iconify-icon icon="lucide:users" width="28" stroke-width="1.5"></iconify-icon>
+                  </div>
+                  <h3 classname="text-2xl font-serif font-semibold text-white mb-3">Vibrant Community</h3>
+                  <p classname="text-slate-300 text-sm leading-relaxed mb-6">Join a diverse network of students. Experience cultural exchange right on campus.</p>
+                  <div classname="flex -space-x-3">
+                    <img classname="w-10 h-10 rounded-full border-2 border-slate-900" src="https://i.pravatar.cc/150?u=10" alt="Student">
+                    <img classname="w-10 h-10 rounded-full border-2 border-slate-900" src="https://i.pravatar.cc/150?u=12" alt="Student">
+                    <img classname="w-10 h-10 rounded-full border-2 border-slate-900" src="https://i.pravatar.cc/150?u=15" alt="Student">
+                    <div classname="w-10 h-10 rounded-full border-2 border-slate-900 bg-amber-600 flex items-center justify-center text-xs font-semibold">+2k</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Small Card 1 */}
+              <div classname="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative overflow-hidden group hover:shadow-lg transition-all hover:border-amber-200">
+                <div classname="flex flex-col h-full justify-between">
+                  <div classname="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 border border-indigo-100">
+                    <iconify-icon icon="lucide:library" width="28" stroke-width="1.5"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 classname="text-xl font-serif font-semibold text-slate-900 mb-2">Digital Library</h3>
+                    <p classname="text-sm text-slate-500">Access millions of resources anytime, anywhere via our cloud library.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Small Card 2 */}
+              <div classname="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm relative overflow-hidden group hover:shadow-lg transition-all hover:border-amber-200">
+                <div classname="flex flex-col h-full justify-between">
+                  <div classname="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 border border-amber-100">
+                    <iconify-icon icon="lucide:trophy" width="28" stroke-width="1.5"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 classname="text-xl font-serif font-semibold text-slate-900 mb-2">Top Rankings</h3>
+                    <p classname="text-sm text-slate-500">Consistently ranked among the top 10 innovation colleges in South Asia.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Detailed Academic Streams */}
+        <section classname="py-20 bg-slate-50 border-t border-slate-200">
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div classname="text-center max-w-3xl mx-auto mb-16">
+              <span classname="text-amber-600 font-semibold tracking-widest text-xs uppercase mb-2 block">Advanced Level</span>
+              <h2 classname="text-3xl md:text-4xl font-serif font-semibold text-slate-900 mb-4 tracking-tight">Academic Streams</h2>
+              <p classname="text-slate-500">We offer comprehensive streams for G.C.E A/L students with state-of-the-art facilities and experienced lecture panels.</p>
+            </div>
+
+            <div classname="grid md:grid-cols-3 gap-8">
+              {/* Physical Science */}
+              <div classname="bg-white rounded-2xl p-6 border border-slate-200 hover:border-amber-300 transition-colors group">
+                <div classname="flex items-center gap-4 mb-4">
+                  <div classname="w-12 h-12 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+                    <iconify-icon icon="lucide:atom" width="24"></iconify-icon>
+                  </div>
+                  <h3 classname="text-lg font-semibold text-slate-900 font-serif">Physical Science</h3>
+                </div>
+                <ul classname="space-y-3 mb-6">
+                  <li classname="flex items-center gap-3 text-sm text-slate-600">
+                    <iconify-icon icon="lucide:check" width="16" classname="text-green-500"></iconify-icon> Combined Maths
+                  </li>
+                  <li classname="flex items-center gap-3 text-sm text-slate-600">
+                    <iconify-icon icon="lucide:check" width="16" classname="text-green-500"></iconify-icon> Physics
+                  </li>
+                  <li classname="flex items-center gap-3 text-sm text-slate-600">
+                    <iconify-icon icon="lucide:check" width="16" classname="text-green-500"></iconify-icon> Chemistry / ICT
+                  </li>
+                </ul>
+                <a href="#" classname="text-xs font-semibold text-blue-600 uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">Syllabus <iconify-icon icon="lucide:arrow-right" width="12"></iconify-icon></a>
+              </div>
+
+              {/* Biological Science */}
+              <div classname="bg-white rounded-2xl p-6 border border-slate-200 hover:border-amber-300 transition-colors group">
+                <div classname="flex items-center gap-4 mb-4">
+                  <div classname="w-12 h-12 rounded-lg bg-green-50 text-green-600 flex items-center justify-center">
+                    <iconify-icon icon="lucide:dna" width="24"></iconify-icon>
+                  </div>
+                  <h3 classname="text-lg font-semibold text-slate-900 font-serif">Biological Science</h3>
+                </div>
+                <ul classname="space-y-3 mb-6">
+                  <li classname="flex items-center gap-3 text-sm text-slate-600">
+                    <iconify-icon icon="lucide:check" width="16" classname="text-green-500"></iconify-icon> Biology
+                  </li>
+                  <li classname="flex items-center gap-3 text-sm text-slate-600">
+                    <iconify-icon icon="lucide:check" width="16" classname="text-green-500"></iconify-icon> Chemistry
+                  </li>
+                  <li classname="flex items-center gap-3 text-sm text-slate-600">
+                    <iconify-icon icon="lucide:check" width="16" classname="text-green-500"></iconify-icon> Physics / Agriculture
+                  </li>
+                </ul>
+                <a href="#" classname="text-xs font-semibold text-green-600 uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">Syllabus <iconify-icon icon="lucide:arrow-right" width="12"></iconify-icon></a>
+              </div>
+
+              {/* Commerce */}
+              <div classname="bg-white rounded-2xl p-6 border border-slate-200 hover:border-amber-300 transition-colors group">
+                <div classname="flex items-center gap-4 mb-4">
+                  <div classname="w-12 h-12 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+                    <iconify-icon icon="lucide:bar-chart-3" width="24"></iconify-icon>
+                  </div>
+                  <h3 classname="text-lg font-semibold text-slate-900 font-serif">Commerce</h3>
+                </div>
+                <ul classname="space-y-3 mb-6">
+                  <li classname="flex items-center gap-3 text-sm text-slate-600">
+                    <iconify-icon icon="lucide:check" width="16" classname="text-green-500"></iconify-icon> Accounting
+                  </li>
+                  <li classname="flex items-center gap-3 text-sm text-slate-600">
+                    <iconify-icon icon="lucide:check" width="16" classname="text-green-500"></iconify-icon> Business Studies
+                  </li>
+                  <li classname="flex items-center gap-3 text-sm text-slate-600">
+                    <iconify-icon icon="lucide:check" width="16" classname="text-green-500"></iconify-icon> Economics
+                  </li>
+                </ul>
+                <a href="#" classname="text-xs font-semibold text-amber-600 uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">Syllabus <iconify-icon icon="lucide:arrow-right" width="12"></iconify-icon></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Programs Gallery */}
+        <section classname="py-24 bg-white relative">
+          <div classname="max-w-7xl mx-auto px-6">
+            <div classname="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Course Card 1 */}
+              <a href="#" classname="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div classname="aspect-[16/9] overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" classname="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Technology">
+                </div>
+                <div classname="p-6">
+                  <div classname="flex items-center justify-between mb-4">
+                    <span classname="text-[10px] font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded border border-amber-100 uppercase">Primary</span>
+                    <iconify-icon icon="lucide:arrow-up-right" width="18" classname="text-slate-300 group-hover:text-amber-600 transition-colors"></iconify-icon>
+                  </div>
+                  <h3 classname="text-lg font-semibold font-serif text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">Junior School</h3>
+                  <p classname="text-sm text-slate-500 line-clamp-2">Foundational years focusing on creativity, language, and basic mathematics in a nurturing environment.</p>
+                </div>
+              </a>
+
+              {/* Course Card 2 */}
+              <a href="#" classname="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div classname="aspect-[16/9] overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" classname="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Business">
+                </div>
+                <div classname="p-6">
+                  <div classname="flex items-center justify-between mb-4">
+                    <span classname="text-[10px] font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded border border-amber-100 uppercase">Secondary</span>
+                    <iconify-icon icon="lucide:arrow-up-right" width="18" classname="text-slate-300 group-hover:text-amber-600 transition-colors"></iconify-icon>
+                  </div>
+                  <h3 classname="text-lg font-semibold font-serif text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">Ordinary Level</h3>
+                  <p classname="text-sm text-slate-500 line-clamp-2">Rigorous preparation for the G.C.E O/L examination with a focus on core subjects and electives.</p>
+                </div>
+              </a>
+
+              {/* Course Card 3 */}
+              <a href="#" classname="group relative bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div classname="aspect-[16/9] overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" classname="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Science">
+                </div>
+                <div classname="p-6">
+                  <div classname="flex items-center justify-between mb-4">
+                    <span classname="text-[10px] font-semibold text-amber-600 bg-amber-50 px-2 py-1 rounded border border-amber-100 uppercase">Sports</span>
+                    <iconify-icon icon="lucide:arrow-up-right" width="18" classname="text-slate-300 group-hover:text-amber-600 transition-colors"></iconify-icon>
+                  </div>
+                  <h3 classname="text-lg font-semibold font-serif text-slate-900 mb-2 group-hover:text-amber-600 transition-colors">Sports Academy</h3>
+                  <p classname="text-sm text-slate-500 line-clamp-2">Professional training in Cricket, Rugby, Swimming, and Athletics for aspiring national players.</p>
+                </div>
+              </a>
+            </div>
+
+            <div classname="mt-12 text-center">
+              <button classname="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 bg-white text-slate-600 rounded-full text-sm font-medium hover:bg-slate-50 transition-colors shadow-sm">
+                View Full Curriculum <iconify-icon icon="lucide:chevron-right" width="16"></iconify-icon>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Clubs &amp; Societies */}
+        <section classname="py-24 bg-slate-950 relative overflow-hidden" id="clubs">
+          <div classname="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl -z-10"></div>
+          <div classname="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl -z-10"></div>
+
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div classname="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+              <div>
+                <span classname="text-amber-500 font-semibold tracking-widest text-xs uppercase block mb-2">Co-Curricular</span>
+                <h2 classname="text-3xl md:text-4xl font-serif font-semibold text-white tracking-tight">Societies &amp; Activities</h2>
+                <p classname="text-slate-400 mt-4 max-w-xl text-lg font-light">Beyond textbooks, character is forged in our 40+ active student bodies.</p>
+              </div>
+              <a href="#" classname="group flex items-center gap-2 text-white bg-white/10 hover:bg-white/20 px-5 py-2.5 rounded-full text-sm font-medium transition-all backdrop-blur-sm border border-white/10">
+                View All Clubs <iconify-icon icon="lucide:arrow-right" width="16" classname="group-hover:translate-x-1 transition-transform text-amber-500"></iconify-icon>
+              </a>
+            </div>
+
+            <div classname="grid grid-cols-1 md:grid-cols-12 gap-6">
+              {/* Main Featured Card */}
+              <div classname="md:col-span-7 lg:col-span-8 relative group overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 min-h-[300px]">
+                <img src="https://images.unsplash.com/photo-1516934024742-b461fba47600?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="Media" classname="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700">
+                <div classname="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                <div classname="relative z-10 p-8 flex flex-col h-full justify-end">
+                  <div classname="w-10 h-10 rounded-lg bg-amber-500 text-slate-900 flex items-center justify-center mb-4 shadow-lg shadow-amber-500/20">
+                    <iconify-icon icon="lucide:camera" width="20"></iconify-icon>
+                  </div>
+                  <h3 classname="text-2xl font-semibold text-white mb-2">Media Unit</h3>
+                  <p classname="text-slate-300 text-sm max-w-md">The voice of Saranath. Covering events, producing documentaries, and broadcasting live updates since 1995.</p>
+                </div>
+              </div>
+
+              {/* Side Card */}
+              <div classname="md:col-span-5 lg:col-span-4 relative group overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-8 hover:border-amber-500/30 transition-colors">
+                <div classname="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
+                  <iconify-icon icon="lucide:plane" width="120" classname="text-slate-500 rotate-12"></iconify-icon>
+                </div>
+                <div classname="relative z-10 h-full flex flex-col justify-between">
+                  <div>
+                    <span classname="inline-block px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] font-semibold uppercase tracking-wider rounded border border-blue-500/20 mb-4">Trending</span>
+                    <h3 classname="text-xl font-semibold text-white mb-2">Aviation Club</h3>
+                    <p classname="text-slate-400 text-sm">Explore the skies with flight simulations and aeronautical workshops.</p>
+                  </div>
+                  <button classname="mt-6 text-xs font-semibold text-white uppercase tracking-wide flex items-center gap-2 group-hover:text-amber-500 transition-colors">
+                    Join Society <iconify-icon icon="lucide:arrow-right" width="14"></iconify-icon>
+                  </button>
+                </div>
+              </div>
+
+              {/* Bottom Row */}
+              <div classname="md:col-span-4 relative group rounded-3xl bg-slate-900 border border-slate-800 p-6 hover:bg-slate-800 transition-all">
+                <div classname="flex items-start gap-4">
+                  <div classname="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center border border-purple-500/20 shrink-0">
+                    <iconify-icon icon="lucide:palette" width="24"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 classname="text-lg font-semibold text-white mb-1">Aesthetics</h3>
+                    <p classname="text-xs text-slate-400 leading-relaxed mb-3">Oriental Music, Western Band, Art Circle, and Drama Society.</p>
+                    <div classname="flex -space-x-2">
+                      <div classname="w-6 h-6 rounded-full border border-slate-800 bg-slate-700"></div>
+                      <div classname="w-6 h-6 rounded-full border border-slate-800 bg-slate-600"></div>
+                      <div classname="w-6 h-6 rounded-full border border-slate-800 bg-slate-500 flex items-center justify-center text-[8px] text-white">+8</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div classname="md:col-span-4 relative group rounded-3xl bg-slate-900 border border-slate-800 p-6 hover:bg-slate-800 transition-all">
+                <div classname="flex items-start gap-4">
+                  <div classname="w-12 h-12 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center border border-green-500/20 shrink-0">
+                    <iconify-icon icon="lucide:sprout" width="24"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 classname="text-lg font-semibold text-white mb-1">Environmental</h3>
+                    <p classname="text-xs text-slate-400 leading-relaxed mb-3">Scouts, Nature Club, Wildlife Society, and Globe Rangers.</p>
+                    <div classname="flex -space-x-2">
+                      <div classname="w-6 h-6 rounded-full border border-slate-800 bg-slate-700"></div>
+                      <div classname="w-6 h-6 rounded-full border border-slate-800 bg-slate-600"></div>
+                      <div classname="w-6 h-6 rounded-full border border-slate-800 bg-slate-500 flex items-center justify-center text-[8px] text-white">+5</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div classname="md:col-span-4 relative group rounded-3xl bg-slate-900 border border-slate-800 p-6 hover:bg-slate-800 transition-all">
+                <div classname="flex items-start gap-4">
+                  <div classname="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center border border-amber-500/20 shrink-0">
+                    <iconify-icon icon="lucide:book-open" width="24"></iconify-icon>
+                  </div>
+                  <div>
+                    <h3 classname="text-lg font-semibold text-white mb-1">Academic</h3>
+                    <p classname="text-xs text-slate-400 leading-relaxed mb-3">Science Union, Commerce Society, ICT Club, and Debate.</p>
+                    <div classname="flex -space-x-2">
+                      <div classname="w-6 h-6 rounded-full border border-slate-800 bg-slate-700"></div>
+                      <div classname="w-6 h-6 rounded-full border border-slate-800 bg-slate-600"></div>
+                      <div classname="w-6 h-6 rounded-full border border-slate-800 bg-slate-500 flex items-center justify-center text-[8px] text-white">+12</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Alumni Testimonials */}
+        <section classname="py-24 bg-amber-50/50 border-b border-slate-200">
+          <div classname="max-w-7xl mx-auto px-6">
+            <h2 classname="text-3xl font-serif font-semibold text-slate-900 text-center mb-12 tracking-tight">Voices of Alumni</h2>
+            <div classname="grid md:grid-cols-2 gap-8">
+              {/* Review 1 */}
+              <div classname="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm relative">
+                <iconify-icon icon="lucide:quote" width="40" classname="text-amber-100 absolute top-6 right-6"></iconify-icon>
+                <p classname="text-slate-600 italic mb-6 relative z-10">"Saranath taught me that integrity is more important than success. The discipline I learned here has been the foundation of my career."</p>
+                <div classname="flex items-center gap-4">
+                  <img src="https://i.pravatar.cc/150?u=5" alt="Alumni" classname="w-12 h-12 rounded-full border-2 border-amber-100">
+                  <div>
+                    <h4 classname="font-semibold text-slate-900 text-sm">Dr. A. Jayasinghe</h4>
+                    <p classname="text-xs text-slate-500">Batch of 1995 • Surgeon</p>
+                  </div>
+                </div>
+              </div>
+              {/* Review 2 */}
+              <div classname="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm relative">
+                <iconify-icon icon="lucide:quote" width="40" classname="text-amber-100 absolute top-6 right-6"></iconify-icon>
+                <p classname="text-slate-600 italic mb-6 relative z-10">"The camaraderie at Saranath is unmatched. Even 20 years later, my closest friends are the ones I made in Grade 6."</p>
+                <div classname="flex items-center gap-4">
+                  <img src="https://i.pravatar.cc/150?u=8" alt="Alumni" classname="w-12 h-12 rounded-full border-2 border-amber-100">
+                  <div>
+                    <h4 classname="font-semibold text-slate-900 text-sm">Mr. S. Fernando</h4>
+                    <p classname="text-xs text-slate-500">Batch of 2003 • CEO, TechCorp</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* News &amp; Events Split Section */}
+        <section classname="py-20 bg-white" id="news">
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div classname="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+              {/* Latest News */}
+              <div classname="lg:col-span-2">
+                <div classname="flex items-center justify-between mb-8">
+                  <h2 classname="text-3xl font-serif font-semibold text-slate-900 tracking-tight">College News</h2>
+                  <a href="#" classname="text-sm font-medium text-amber-600 hover:text-amber-700 flex items-center gap-1 group">
+                    View Archives <iconify-icon icon="lucide:arrow-right" width="16" classname="group-hover:translate-x-1 transition-transform"></iconify-icon>
+                  </a>
+                </div>
+
+                <div classname="grid gap-8">
+                  {/* News Item 1 */}
+                  <div classname="flex flex-col md:flex-row gap-6 group cursor-pointer">
+                    <div classname="w-full md:w-64 h-40 shrink-0 overflow-hidden rounded-xl border border-slate-100">
+                      <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="News" classname="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div>
+                      <div classname="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-2">
+                        <span classname="text-amber-600 flex items-center gap-1"><iconify-icon icon="lucide:calendar" width="12"></iconify-icon> Oct 12, 2024</span>
+                        <span>•</span>
+                        <span>Academics</span>
+                      </div>
+                      <h3 classname="text-xl font-semibold text-slate-900 mb-2 font-serif group-hover:text-amber-700 transition-colors">Saranath Students Top Island Rankings in GCE A/L</h3>
+                      <p classname="text-slate-600 text-sm line-clamp-2 mb-3">
+                        Exceptional performance by the 2023 batch with 15 students achieving 3As in the Physical Science stream. The college administration congratulates...
+                      </p>
+                      <span classname="text-xs font-semibold text-slate-900 underline decoration-amber-500/50 underline-offset-4 group-hover:decoration-amber-500 transition-all">Read more</span>
+                    </div>
+                  </div>
+
+                  {/* News Item 2 */}
+                  <div classname="flex flex-col md:flex-row gap-6 group cursor-pointer border-t border-slate-100 pt-8">
+                    <div classname="w-full md:w-64 h-40 shrink-0 overflow-hidden rounded-xl border border-slate-100">
+                      <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&amp;w=2070&amp;auto=format&amp;fit=crop" alt="News" classname="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div>
+                      <div classname="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-wider text-slate-500 mb-2">
+                        <span classname="text-amber-600 flex items-center gap-1"><iconify-icon icon="lucide:calendar" width="12"></iconify-icon> Sep 28, 2024</span>
+                        <span>•</span>
+                        <span>Sports</span>
+                      </div>
+                      <h3 classname="text-xl font-semibold text-slate-900 mb-2 font-serif group-hover:text-amber-700 transition-colors">Colors Night 2024: Celebrating Sportsmanship</h3>
+                      <p classname="text-slate-600 text-sm line-clamp-2 mb-3">
+                        The annual Colors Night was held at the Main Hall, graced by the Minister of Sports. Over 200 sportsmen were recognized for their achievements.
+                      </p>
+                      <span classname="text-xs font-semibold text-slate-900 underline decoration-amber-500/50 underline-offset-4 group-hover:decoration-amber-500 transition-all">Read more</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Upcoming Events */}
+              <div classname="lg:col-span-1">
+                <h2 classname="text-3xl font-serif font-semibold text-slate-900 mb-8 tracking-tight">Upcoming Events</h2>
+                <div classname="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+
+                  {/* Event 1 */}
+                  <div classname="flex gap-4 mb-6 pb-6 border-b border-slate-200 last:border-0 last:mb-0 last:pb-0 group cursor-pointer">
+                    <div classname="flex flex-col items-center justify-center w-14 h-14 bg-white border border-slate-200 rounded-xl shadow-sm shrink-0 group-hover:border-amber-400 transition-colors">
+                      <span classname="text-[10px] font-semibold text-amber-600 uppercase">Nov</span>
+                      <span classname="text-xl font-semibold text-slate-900 font-serif">15</span>
+                    </div>
+                    <div>
+                      <h4 classname="font-semibold text-slate-900 leading-tight mb-1 group-hover:text-amber-700 transition-colors">Annual Prize Giving</h4>
+                      <p classname="text-xs text-slate-500 mb-2">Main Hall • 08:00 AM</p>
+                      <span classname="inline-block px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-green-100 text-green-700 rounded border border-green-200">Public</span>
+                    </div>
+                  </div>
+
+                  {/* Event 2 */}
+                  <div classname="flex gap-4 mb-6 pb-6 border-b border-slate-200 last:border-0 last:mb-0 last:pb-0 group cursor-pointer">
+                    <div classname="flex flex-col items-center justify-center w-14 h-14 bg-white border border-slate-200 rounded-xl shadow-sm shrink-0 group-hover:border-amber-400 transition-colors">
+                      <span classname="text-[10px] font-semibold text-amber-600 uppercase">Nov</span>
+                      <span classname="text-xl font-semibold text-slate-900 font-serif">22</span>
+                    </div>
+                    <div>
+                      <h4 classname="font-semibold text-slate-900 leading-tight mb-1 group-hover:text-amber-700 transition-colors">Inter-House Debating</h4>
+                      <p classname="text-xs text-slate-500 mb-2">Library Auditorium • 02:00 PM</p>
+                      <span classname="inline-block px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-blue-100 text-blue-700 rounded border border-blue-200">Students Only</span>
+                    </div>
+                  </div>
+
+                  {/* Event 3 */}
+                  <div classname="flex gap-4 group cursor-pointer">
+                    <div classname="flex flex-col items-center justify-center w-14 h-14 bg-white border border-slate-200 rounded-xl shadow-sm shrink-0 group-hover:border-amber-400 transition-colors">
+                      <span classname="text-[10px] font-semibold text-amber-600 uppercase">Dec</span>
+                      <span classname="text-xl font-semibold text-slate-900 font-serif">05</span>
+                    </div>
+                    <div>
+                      <h4 classname="font-semibold text-slate-900 leading-tight mb-1 group-hover:text-amber-700 transition-colors">Christmas Carols</h4>
+                      <p classname="text-xs text-slate-500 mb-2">College Chapel • 06:00 PM</p>
+                      <span classname="inline-block px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide bg-green-100 text-green-700 rounded border border-green-200">Public</span>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="#" classname="block w-full py-3 mt-4 text-center text-sm font-medium text-white bg-slate-900 rounded-xl hover:bg-slate-800 transition-colors shadow-sm">
+                  View Full Calendar
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Application / Contact Strip */}
+        <section classname="py-24 bg-amber-600 relative overflow-hidden" id="application">
+          <div classname="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 classname="text-3xl md:text-5xl font-serif font-semibold text-white mb-6 tracking-tight">Join the Saranath Family</h2>
+            <p classname="text-amber-100 text-lg max-w-2xl mx-auto mb-12">
+              We are currently accepting applications for Grade 1 (2025) and Grade 6 (2025). Download the application form or contact the registrar.
+            </p>
+            <div classname="flex flex-col sm:flex-row gap-4 justify-center">
+              <button classname="px-8 py-4 bg-white text-amber-700 font-semibold rounded-lg shadow-xl shadow-amber-900/20 hover:bg-amber-50 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                <iconify-icon icon="lucide:download" width="20" stroke-width="2"></iconify-icon>
+                Download Application
+              </button>
+              <button classname="px-8 py-4 bg-slate-900 text-white font-semibold rounded-lg shadow-xl shadow-slate-900/20 hover:bg-slate-800 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                <iconify-icon icon="lucide:phone-call" width="20" stroke-width="2"></iconify-icon>
+                Contact Registrar
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Detailed Footer */}
+        <footer classname="bg-slate-950 text-slate-400 pt-20 pb-10 border-t-4 border-amber-600">
+          <div classname="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div classname="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+
+              {/* Brand */}
+              <div>
+                <div classname="flex items-center gap-3 mb-6">
+                  <div classname="w-10 h-10 bg-amber-600 text-white rounded-lg flex items-center justify-center shadow-lg shadow-amber-900/20">
+                    <iconify-icon icon="lucide:shield-check" width="20"></iconify-icon>
+                  </div>
+                  <span classname="text-xl font-serif font-semibold text-white">Saranath College</span>
+                </div>
+                <p classname="text-sm leading-relaxed mb-6">
+                  An institution dedicated to the pursuit of educational excellence, character building, and national service since 1924.
+                </p>
+                <div classname="flex gap-4">
+                  <a href="#" classname="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-amber-600 hover:text-white hover:border-amber-600 transition-all"><iconify-icon icon="lucide:facebook" width="18"></iconify-icon></a>
+                  <a href="#" classname="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-amber-600 hover:text-white hover:border-amber-600 transition-all"><iconify-icon icon="lucide:twitter" width="18"></iconify-icon></a>
+                  <a href="#" classname="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-amber-600 hover:text-white hover:border-amber-600 transition-all"><iconify-icon icon="lucide:youtube" width="18"></iconify-icon></a>
+                </div>
+              </div>
+
+              {/* Contact Info */}
+              <div>
+                <h3 classname="text-white font-semibold mb-6 text-xs uppercase tracking-widest">Contact Us</h3>
+                <ul classname="space-y-4 text-sm">
+                  <li classname="flex items-start gap-3">
+                    <iconify-icon icon="lucide:map-pin" width="16" classname="mt-1 text-amber-600 shrink-0"></iconify-icon>
+                    <span>No. 123, School Lane,<br>Colombo 07, Sri Lanka</span>
+                  </li>
+                  <li classname="flex items-center gap-3">
+                    <iconify-icon icon="lucide:phone" width="16" classname="text-amber-600 shrink-0"></iconify-icon>
+                    <span>+94 11 234 5678</span>
+                  </li>
+                  <li classname="flex items-center gap-3">
+                    <iconify-icon icon="lucide:printer" width="16" classname="text-amber-600 shrink-0"></iconify-icon>
+                    <span>+94 11 234 5679</span>
+                  </li>
+                  <li classname="flex items-center gap-3">
+                    <iconify-icon icon="lucide:mail" width="16" classname="text-amber-600 shrink-0"></iconify-icon>
+                    <span>info@saranath.lk</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Quick Links */}
+              <div>
+                <h3 classname="text-white font-semibold mb-6 text-xs uppercase tracking-widest">Quick Links</h3>
+                <ul classname="space-y-3 text-sm">
+                  <li><a href="#" classname="hover:text-amber-500 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:chevron-right" width="12" classname="text-slate-600"></iconify-icon> School Calendar</a></li>
+                  <li><a href="#" classname="hover:text-amber-500 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:chevron-right" width="12" classname="text-slate-600"></iconify-icon> Exam Time Tables</a></li>
+                  <li><a href="#" classname="hover:text-amber-500 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:chevron-right" width="12" classname="text-slate-600"></iconify-icon> Book List 2025</a></li>
+                  <li><a href="#" classname="hover:text-amber-500 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:chevron-right" width="12" classname="text-slate-600"></iconify-icon> Sports Schedule</a></li>
+                  <li><a href="#" classname="hover:text-amber-500 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:chevron-right" width="12" classname="text-slate-600"></iconify-icon> Vacancies</a></li>
+                  <li><a href="#" classname="hover:text-amber-500 transition-colors flex items-center gap-2"><iconify-icon icon="lucide:chevron-right" width="12" classname="text-slate-600"></iconify-icon> Tenders</a></li>
+                </ul>
+              </div>
+
+              {/* Location Map */}
+              <div>
+                <h3 classname="text-white font-semibold mb-6 text-xs uppercase tracking-widest">Location</h3>
+                <div classname="w-full h-40 bg-slate-900 rounded-lg flex items-center justify-center border border-slate-800 relative overflow-hidden group">
+                  <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&amp;w=2074&amp;auto=format&amp;fit=crop" classname="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 group-hover:opacity-50 transition-all duration-500" alt="Map">
+                  <a href="#" classname="relative z-10 px-4 py-2 bg-white text-slate-900 text-xs font-semibold rounded shadow-lg hover:bg-amber-50 transition-colors flex items-center gap-2">
+                    <iconify-icon icon="lucide:map" width="14"></iconify-icon> Open in Maps
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+            <div classname="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
+              <p>© 2024 Saranath College. All Rights Reserved.</p>
+              <div classname="flex gap-8">
+                <a href="#" classname="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" classname="hover:text-white transition-colors">Terms of Use</a>
+                <a href="#" classname="hover:text-white transition-colors">Sitemap</a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      
+    
+  );
+}</body></html>
