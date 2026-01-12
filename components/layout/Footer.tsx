@@ -9,8 +9,8 @@ export default function Footer() {
                     {/* Brand */}
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-10 h-10 bg-amber-600 text-white rounded-lg flex items-center justify-center shadow-lg shadow-amber-900/20">
-                                <ShieldCheck className="w-5 h-5" />
+                            <div className="w-12 h-12 flex items-center justify-center">
+                                <img src="/logos/sch.png" alt="Saranath College Logo" className="w-full h-full object-contain" />
                             </div>
                             <span className="text-xl font-serif font-semibold text-white">
                                 Saranath College
@@ -82,31 +82,31 @@ export default function Footer() {
 
                     {/* Academic */}
                     <div>
-                        <h3 className="text-white font-semibold mb-6">Academic</h3>
+                        <h3 className="text-white font-semibold mb-6">Academic Sections</h3>
                         <ul className="space-y-4 text-sm">
                             <li>
-                                <Link href="#" className="hover:text-amber-500 transition-colors">
-                                    Primary School
+                                <Link href="/programs/junior-secondary" className="hover:text-amber-500 transition-colors">
+                                    Junior Secondary (6-8)
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:text-amber-500 transition-colors">
-                                    Middle School
+                                <Link href="/programs/ordinary-level" className="hover:text-amber-500 transition-colors">
+                                    Secondary (9-11)
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:text-amber-500 transition-colors">
-                                    Upper School
+                                <Link href="/programs/senior-secondary" className="hover:text-amber-500 transition-colors">
+                                    Senior Secondary (12-13)
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:text-amber-500 transition-colors">
+                                <Link href="/programs/sports-academy" className="hover:text-amber-500 transition-colors">
                                     Sports Academy
                                 </Link>
                             </li>
                             <li>
-                                <Link href="#" className="hover:text-amber-500 transition-colors">
-                                    Library
+                                <Link href="/academics" className="hover:text-amber-500 transition-colors">
+                                    Library & Resources
                                 </Link>
                             </li>
                         </ul>
@@ -135,16 +135,28 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
-                    <p>© 2024 Saranath College. All rights reserved.</p>
-                    <div className="flex gap-6">
+                <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs italic">
+                    <div className="flex flex-col md:flex-row items-center gap-4">
+                        <p>© 2024 Saranath College. All rights reserved.</p>
+                        <div className="hidden md:block w-px h-4 bg-slate-800"></div>
+                        <div className="flex items-center gap-2 group">
+                            <span className="text-slate-500 not-italic">Developed by</span>
+                            <span className="text-slate-300 font-semibold not-italic group-hover:text-amber-500 transition-colors">Agradhi Media Unit</span>
+                            <img
+                                src="/logos/Agradhi.png"
+                                alt="Agradhi Media Logo"
+                                className="h-6 w-auto opacity-70 group-hover:opacity-100 transition-opacity"
+                            />
+                        </div>
+                    </div>
+                    <div className="flex gap-6 not-italic font-medium">
                         <Link href="#" className="hover:text-white transition-colors">
                             Privacy Policy
                         </Link>
                         <Link href="#" className="hover:text-white transition-colors">
                             Terms of Service
                         </Link>
-                        <Link href="#" className="hover:text-white transition-colors">
+                        <Link href="/sitemap.xml" className="hover:text-white transition-colors">
                             Sitemap
                         </Link>
                     </div>

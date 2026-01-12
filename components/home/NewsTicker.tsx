@@ -9,7 +9,7 @@ export default function NewsTicker() {
                 </span>
                 <div className="marquee-container w-full">
                     <div className="marquee-content text-xs md:text-sm font-medium text-slate-800 flex gap-8">
-                        <span>Grade 1 Admissions for 2025 are now open until August 30th</span>
+                        <span>Grade 6 Admissions for 2025 are now open until August 30th</span>
                         <span className="text-amber-400 ml-4 mr-2">•</span>
                         <span>Annual Sports Meet Postponed to next Friday due to weather</span>
                         <span className="text-amber-400 ml-4 mr-2">•</span>

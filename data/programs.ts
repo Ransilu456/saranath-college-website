@@ -5,7 +5,7 @@ export interface Program {
     description: string;
     fullDescription: string; // HTML
     image: string;
-    link: string; // This might now be redundant if we link to /programs/[id] by default, but keeping for compatibility or custom internal redirects
+    link: string;
     grades?: string;
     curriculumHighlights: string[];
     facilities: string[];
@@ -13,51 +13,51 @@ export interface Program {
 
 export const programs: Program[] = [
     {
-        id: "junior-school",
-        title: "Junior School",
-        category: "Primary",
-        description: "Foundational years focusing on creativity, language, and basic mathematics in a nurturing environment. We prioritize holistic development through play-based learning and interactive activities.",
+        id: "junior-secondary",
+        title: "Junior Secondary",
+        category: "Secondary",
+        description: "Focusing on building a strong academic foundation for students in grades 6 to 8. We emphasize critical thinking, language proficiency, and core mathematical concepts.",
         fullDescription: `
-            <p>Our Junior School provides a warm, nurturing environment where young minds are encouraged to explore, question, and create. We believe that the early years are crucial for character formation and cognitive development.</p>
-            <p>The curriculum is designed to be activity-based, moving away from rote learning. We integrate music, art, and drama into daily lessons to make learning enjoyable and effective. Special emphasis is placed on mastery of the mother tongue and English language.</p>
-            <p>We strictly adhere to the government curriculum while supplementing it with international best practices in primary education.</p>
+            <p>The Junior Secondary section serves as the transitional phase where students move into more structured academic disciplines. We focus on fostering a love for learning while establishing high standards of discipline and character.</p>
+            <p>Our curriculum for Grades 6-8 covers a broad spectrum of subjects, ensuring students discover their interests before specializing in later years. Special attention is given to English, Mathematics, and Science, alongside Creative Arts and Physical Education.</p>
+            <p>We provide a supportive environment that helps students navigate the challenges of early adolescence with confidence and integrity.</p>
         `,
-        image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2070&auto=format&fit=crop",
-        link: "/programs/junior-school",
-        grades: "Grade 1 - 5",
-        curriculumHighlights: ["Activity Based Learning", "Bilingual Education", "Value Education", "Aesthetic Skills"],
-        facilities: ["Primary Library", "Kids' Play Area", "Activity Room", "Smart Classrooms"]
+        image: "https://images.unsplash.com/photo-1549633030-89d0743bad01?q=80&w=2080&auto=format&fit=crop",
+        link: "/programs/junior-secondary",
+        grades: "Grade 6 - 8",
+        curriculumHighlights: ["Core Subject Foundation", "Language Development", "Aesthetic Exploration", "Character Building"],
+        facilities: ["Junior Science Lab", "Reading Room", "Activity Hall", "Smart Classrooms"]
     },
     {
         id: "ordinary-level",
-        title: "Ordinary Level",
+        title: "Ordinary Level (O/L)",
         category: "Secondary",
-        description: "Rigorous preparation for the G.C.E O/L examination with a focus on core subjects and electives. Students are guided to discover their academic strengths and interests.",
+        description: "Comprehensive preparation for the G.C.E Ordinary Level examination (Grades 9-11). We guide students through specialized subjects and personal development.",
         fullDescription: `
-            <p>The Secondary Section is where students begin to tackle more specialized subjects and prepare for the G.C.E. Ordinary Level examination. Our focus is on providing a balanced education that covers the core subjects of Mathematics, Science, Langauges, and Religion/Civil educaiton.</p>
-            <p>We offer a wide range of elective subjects including Commerce, Arts, ICT, and Agriculture, allowing students to explore their interests. The academic program is supported by a robust co-curricular program that ensures physical and social development.</p>
-            <p>Regular assessments and remedial classes ensure that every student reaches their full potential before the national examination.</p>
+            <p>The Secondary Section (Grades 9-11) is dedicated to preparing students for the crucial G.C.E. Ordinary Level examination. This phase is characterized by academic rigor and a focus on specialized subject choices.</p>
+            <p>Students select from a variety of elective buckets, including Commerce, Arts, ICT, and Agriculture, allowing them to align their studies with their future goals. Our experienced faculty provides personalized guidance to ensure every student excels in the national exams.</p>
+            <p>Beyond academics, we encourage participation in clubs and sports to maintain a balanced lifestyle during these demanding years.</p>
         `,
         image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
         link: "/programs/ordinary-level",
-        grades: "Grade 6 - 11",
-        curriculumHighlights: ["G.C.E O/L Syllabus", "Practical Science", "ICT Integration", "Life Skills"],
-        facilities: ["Science Labs", "Computer Labs", "Main Library", "Auditorium"]
+        grades: "Grade 9 - 11",
+        curriculumHighlights: ["G.C.E O/L Preparation", "Elective Specialization", "ICT and Technical Skills", "National Exam Strategy"],
+        facilities: ["Senior Science Labs", "ICT Center", "Main Library", "Auditorium"]
     },
     {
-        id: "sports-academy",
-        title: "Sports Academy",
-        category: "Sports",
-        description: "Professional training in Cricket, Rugby, Swimming, and Athletics for aspiring national players. We balance athletic excellence with academic commitments.",
+        id: "senior-alevel",
+        title: "Senior  (A/L)",
+        category: "Secondary",
+        description: "Advanced Level excellence across Science, Commerce, Arts, and Technology streams (Grades 12-13). Nurturing future professionals and leaders.",
         fullDescription: `
-            <p>The Saranath Sports Academy is dedicated to producing world-class athletes. We believe that sports are integral to character building, teaching resilience, teamwork, and leadership.</p>
-            <p>Our academy offers professional coaching in over 15 sports including Cricket, Rugby, Swimming, Athletics, and Basketball. We have a history of producing national and international level players.</p>
-            <p>Student-athletes are supported with special academic schedules to ensure they do not compromise on their studies while pursuing their sporting dreams.</p>
+            <p>The Senior Secondary section is the pinnacle of school life at Saranath College. We offer a highly competitive and supportive environment for students in the Advanced Level streams.</p>
+            <p>Our A/L program is recognized for its excellence in University Entrance results. We offer comprehensive support for Physical Science, Bio Science, Commerce, Arts, and Technology streams, led by a panel of expert educators.</p>
+            <p>We focus on producing well-rounded individuals who are ready to take on the challenges of higher education and professional life with wisdom and virtue.</p>
         `,
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop",
-        link: "/programs/sports-academy",
-        grades: "All Grades",
-        curriculumHighlights: ["Professional Coaching", "Fitness Training", "Sports Psychology", "Nutrition Guidance"],
-        facilities: ["Swimming Pool", "Indoor Stadium", "Rugby/Cricket Grounds", "Gymnasium"]
-    }
+        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop",
+        link: "/programs/senior-secondary",
+        grades: "Grade 12 - 13",
+        curriculumHighlights: ["University Entrance Focus", "Stream-wise Specialization", "Research Projects", "Leadership Development"],
+        facilities: ["Stream Specific Labs", "A/L Study Center", "Digital Archive", "Career Guidance Unit"]
+    },
 ];

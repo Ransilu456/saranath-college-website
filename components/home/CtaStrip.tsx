@@ -12,7 +12,7 @@ export default function CtaStrip() {
                     Join the Saranath Family
                 </h2>
                 <p className="text-amber-100 text-lg max-w-2xl mx-auto mb-12">
-                    We are currently accepting applications for Grade 1 (2025) and Grade 6
+                    We are currently accepting applications for Grade 6 (2025) and Grade 12
                     (2025). Download the application form or contact the registrar.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
