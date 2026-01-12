@@ -10,6 +10,7 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,6 +19,14 @@ export default function Header() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    const handleDropdownEnter = (name: string) => {
+        setActiveDropdown(name);
+    };
+
+    const handleDropdownLeave = () => {
+        setActiveDropdown(null);
+    };
 
     return (
         <>
@@ -55,29 +64,60 @@ export default function Header() {
                                 >
                                     Home
                                 </Link>
-                                <div className="relative group h-full">
+                                <div className="relative group h-full"
+                                    onMouseEnter={() => handleDropdownEnter('about')}
+                                    onMouseLeave={handleDropdownLeave}
+                                >
                                     <Link href="/about" className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 flex items-center gap-1 rounded-md transition-colors">
-                                        About <ChevronDown className="w-3 h-3" strokeWidth={1.5} />
+                                        About
                                     </Link>
                                 </div>
                                 <Link
-                                    href="#administration"
+                                    href="/administration"
                                     className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors"
                                 >
                                     Administration
                                 </Link>
-                                <Link
-                                    href="#academics"
-                                    className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors"
+                                <div className="relative group h-full"
+                                    onMouseEnter={() => handleDropdownEnter('academics')}
+                                    onMouseLeave={handleDropdownLeave}
                                 >
-                                    Academics
-                                </Link>
-                                <Link
-                                    href="#clubs"
-                                    className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors"
+                                    <Link
+                                        href="/academics"
+                                        className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 flex items-center gap-1 rounded-md transition-colors"
+                                    >
+                                        Academics <ChevronDown className="w-3 h-3" strokeWidth={1.5} />
+                                    </Link>
+                                    {activeDropdown === 'academics' && (
+                                        <div className="absolute top-full left-0 w-48 bg-white border border-slate-100 rounded-md shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                                            <Link href="/academics#physical" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Physical Science</Link>
+                                            <Link href="/academics#bio" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Biological Science</Link>
+                                            <Link href="/academics#commerce" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Commerce</Link>
+                                            <Link href="/academics#arts" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Arts</Link>
+                                            <Link href="/academics#tech" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Technology</Link>
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="relative group h-full"
+                                    onMouseEnter={() => handleDropdownEnter('clubs')}
+                                    onMouseLeave={handleDropdownLeave}
                                 >
-                                    Clubs & Sports
-                                </Link>
+                                    <Link
+                                        href="/clubs"
+                                        className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 flex items-center gap-1 rounded-md transition-colors"
+                                    >
+                                        Clubs & Sports <ChevronDown className="w-3 h-3" strokeWidth={1.5} />
+                                    </Link>
+                                    {activeDropdown === 'clubs' && (
+                                        <div className="absolute top-full left-0 w-48 bg-white border border-slate-100 rounded-md shadow-lg py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                                            <Link href="/clubs?category=Co-Curricular" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Co-Curricular</Link>
+                                            <Link href="/clubs?category=Academic" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Academic</Link>
+                                            <Link href="/clubs?category=Sports" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Sports</Link>
+                                            <Link href="/clubs?category=Aesthetics" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Aesthetics</Link>
+                                            <Link href="/clubs?category=Social Service" className="block px-4 py-2 text-sm text-slate-700 hover:bg-amber-50 hover:text-amber-700">Social Service</Link>
+                                        </div>
+                                    )}
+                                </div>
                                 <Link
                                     href="/news"
                                     className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-amber-700 rounded-md transition-colors"
@@ -130,19 +170,19 @@ export default function Header() {
                                 About
                             </Link>
                             <Link
-                                href="#administration"
+                                href="/administration"
                                 className="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md"
                             >
                                 Administration
                             </Link>
                             <Link
-                                href="#academics"
+                                href="/academics"
                                 className="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md"
                             >
                                 Academics
                             </Link>
                             <Link
-                                href="#clubs"
+                                href="/clubs"
                                 className="px-4 py-2 text-sm font-medium text-slate-700 hover:bg-amber-50 hover:text-amber-700 rounded-md"
                             >
                                 Clubs & Sports

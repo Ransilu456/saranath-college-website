@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { Download, FileText, CheckCircle2 } from "lucide-react";
+
+export const metadata: Metadata = {
+    title: 'Admissions 2025',
+    description: 'Join the Saranath College family. Find information about our admission process, requirements, important dates, and download application forms for the 2025 academic year.',
+}
+
 
 export default function AdmissionsPage() {
     return (
