@@ -3,8 +3,18 @@
 import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
 import { Club } from "@/data/clubs";
-import { Search, Filter } from "lucide-react";
+import {
+    Search, Filter, Camera, Plane, Palette, Sprout, BookOpen,
+    Microscope, Music, Monitor, Globe, Gavel,
+    HeartHandshake, Medal, LucideIcon
+} from "lucide-react";
 import Link from "next/link";
+
+const iconMap: Record<string, LucideIcon> = {
+    Camera, Plane, Palette, Sprout, BookOpen,
+    Microscope, Music, Monitor, Globe, Gavel,
+    HeartHandshake, Medal
+};
 
 interface ClubsClientProps {
     clubs: Club[];
@@ -102,7 +112,7 @@ function ClubsContent({ clubs }: { clubs: Club[] }) {
 }
 
 function ClubCard({ club }: { club: Club }) {
-    const Icon = club.icon;
+    const Icon = iconMap[club.icon] || Search; // Fallback to Search if icon not found
     return (
         <Link href={`/clubs/${club.id}`} className="group bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-amber-200 transition-all duration-300 flex flex-col h-full cursor-pointer">
             <div className="h-48 overflow-hidden relative bg-slate-100">

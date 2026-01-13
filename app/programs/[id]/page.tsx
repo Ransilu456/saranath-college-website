@@ -4,11 +4,12 @@ import ProgramDetailsClient from "./ProgramDetailsClient";
 import { Metadata } from 'next';
 
 type Props = {
-    params: { id: string }
+    params: Promise<{ id: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const program = programs.find((p) => p.id === params.id);
+    const { id } = await params;
+    const program = programs.find((p) => p.id === id);
     if (!program) return { title: 'Program Not Found' };
 
     return {
@@ -22,8 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function ProgramDetailsPage({ params }: Props) {
-    const program = programs.find((p) => p.id === params.id);
+export default async function ProgramDetailsPage({ params }: Props) {
+    const { id } = await params;
+    const program = programs.find((p) => p.id === id);
 
     if (!program) {
         return notFound();

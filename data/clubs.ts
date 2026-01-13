@@ -1,17 +1,11 @@
 
-import {
-    Camera, Plane, Palette, Sprout, BookOpen,
-    Microscope, Music, Monitor, Globe, Gavel,
-    HeartHandshake, Medal
-} from "lucide-react";
-
 export interface Club {
     id: string;
     title: string;
     category: "Co-Curricular" | "Academic" | "Sports" | "Aesthetics" | "Social Service";
     description: string;
-    fullDescription: string; 
-    icon: any;
+    fullDescription: string;
+    icon: string;
     image: string;
     featured?: boolean;
     memberCount?: string;
@@ -34,7 +28,7 @@ export const clubs: Club[] = [
             <p>Our members gain hands-on experience in photography, videography, announcing, and post-production. We take pride in our live broadcasts of the Big Match and the annual Sports Meet, bringing the action to alumni around the world.</p>
             <p>The Media Unit also organizes 'Media Day', an inter-school competition that brings together aspiring young media personalities from across the island.</p>
         `,
-        icon: Camera,
+        icon: "Camera",
         image: "https://images.unsplash.com/photo-1516934024742-b461fba47600?q=80&w=2070&auto=format&fit=crop",
         featured: true,
         memberCount: "50+",
@@ -54,7 +48,7 @@ export const clubs: Club[] = [
             <p>The Aviation Club of Saranath College is dedicated to fostering a passion for aeronautics and aerospace engineering among students. We provide a platform for students to learn about the principles of flight, aircraft mechanics, and the history of aviation.</p>
             <p>Regular workshops feature flight simulators, model aircraft building, and guest lectures from industry professionals, including pilots and engineers. The club also organizes field trips to airports and air force bases to give students a real-world perspective.</p>
         `,
-        icon: Plane,
+        icon: "Plane",
         image: "https://images.unsplash.com/photo-1559087316-6b2c332e2c88?q=80&w=2070&auto=format&fit=crop",
         featured: true,
         memberCount: "35",
@@ -74,7 +68,7 @@ export const clubs: Club[] = [
             <p>The Science Union is one of the most active academic societies in the college. We aim to ignite curiosity and foster a scientific temper among students. Our activities range from conducting simple experiments for junior students to organizing large-scale exhibitions.</p>
             <p>The flagship event, 'Eureka', is an annual science exhibition that attracts participation from schools district-wide. We also prepare students for national and international science Olympiads.</p>
         `,
-        icon: Microscope,
+        icon: "Microscope",
         image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop",
         featured: false,
         memberCount: "120",
@@ -93,7 +87,7 @@ export const clubs: Club[] = [
             <p>The Commerce Society equips students with the knowledge and skills needed to navigate the complex world of business and finance. We bridge the gap between classroom learning and the real corporate world.</p>
             <p>We organize the 'Young Entrepreneur' challenge, stock market simulation games, and seminars on financial literacy. Our members regularly interact with successful business leaders and alumni.</p>
         `,
-        icon: BookOpen,
+        icon: "BookOpen",
         image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
         featured: false,
         president: "J. Cooray",
@@ -111,7 +105,7 @@ export const clubs: Club[] = [
             <p>The ICT Club is the hub for all tech enthusiasts at Saranath. From web development to robotics, we cover it all. Our members play a key role in maintaining the school's computer labs and website.</p>
             <p>We organize hackathons, coding bootcamps, and e-sports tournaments. The club also runs a 'Digital Literacy' program for community members.</p>
         `,
-        icon: Monitor,
+        icon: "Monitor",
         image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
         featured: false,
         president: "T. Bandara",
@@ -129,7 +123,7 @@ export const clubs: Club[] = [
             <p>The Debating Society has a rich history of excellence, producing eloquent speakers who have excelled at the national level. We believe that debating sharpens critical thinking and builds confidence.</p>
             <p>We conduct regular practice debates, workshops on public speaking, and host the prestigious 'Saranath Challenge Trophy' inter-school debating tournament.</p>
         `,
-        icon: Gavel,
+        icon: "Gavel",
         image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop",
         featured: false,
         president: "A. Perera",
@@ -147,7 +141,7 @@ export const clubs: Club[] = [
             <p>The Oriental Music Unit is the soul of our cultural heritage. Our orchestra is renowned for its mesmerizing performances of classical and folk music.</p>
             <p>We provide training in various instruments such as the Sitar, Violin, Flute, and Tabla. The unit performs at all major school functions and competes in the All-Island Music Competitions.</p>
         `,
-        icon: Music,
+        icon: "Music",
         image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop",
         featured: false,
         president: "H. Liyanage",
@@ -165,7 +159,7 @@ export const clubs: Club[] = [
             <p>The Art Circle is a canvas for students to express their creativity. We explore various mediums of art, from sketching and painting to sculpture and digital art.</p>
             <p>We decorate the school for festivals and organize 'Chithra', an annual art exhibition showcasing the best talents of our students.</p>
         `,
-        icon: Palette,
+        icon: "Palette",
         image: "https://images.unsplash.com/photo-1460661631189-a05e61849254?q=80&w=2067&auto=format&fit=crop",
         featured: false,
         president: "D. Mendis",
@@ -182,7 +176,7 @@ export const clubs: Club[] = [
             <p>Globe Rangers is the environmental arm of the school. We are committed to making our school and community greener and cleaner.</p>
             <p>Our projects include tree planting campaigns, recycling programs, and beach clean-ups. We also maintain the school's herbal garden.</p>
         `,
-        icon: Globe,
+        icon: "Globe",
         image: "https://images.unsplash.com/photo-1542601906990-24d452b469ad?q=80&w=2070&auto=format&fit=crop",
         featured: false,
         president: "N. Karunaratne",
@@ -199,7 +193,7 @@ export const clubs: Club[] = [
             <p>The 42nd Colombo Scout Troop of Saranath College has a proud legacy dating back decades. We instill values of discipline, leadership, and service.</p>
             <p>Scouts engage in camping, hiking, knotting, and first aid training. We regularly participate in national jamborees and community service projects.</p>
         `,
-        icon: Sprout,
+        icon: "Sprout",
         image: "https://images.unsplash.com/photo-1534330207526-9e451c220f18?q=80&w=2376&auto=format&fit=crop",
         featured: false,
         president: "Troop Leader S. Dias",
@@ -217,7 +211,7 @@ export const clubs: Club[] = [
             <p>The Interact Club, sponsored by the Rotary Club regarding, is dedicated to selfless service. We organize projects in four avenues: Community Service, International Understanding, Club Service, and Finance.</p>
             <p>Our signature projects include donating libraries to rural schools, blood donation campaigns, and leadership training camps.</p>
         `,
-        icon: HeartHandshake,
+        icon: "HeartHandshake",
         image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?q=80&w=2074&auto=format&fit=crop",
         featured: false,
         president: "Int. K. Perera",
@@ -235,7 +229,7 @@ export const clubs: Club[] = [
             <p>The Prefects' Guild of Saranath College is the apex student leadership body. Entrusted with maintaining discipline, organizing major school events, and representing the student body, the Guild plays a pivotal role in school governance.</p>
             <p>Being appointed as a Prefect is one of the highest honors a Saranathian can achieve. The Guild fosters qualities of responsibility, dedication, and peer leadership. They are the bridge between the administration and the students, upholding the traditions and values of the college.</p>
         `,
-        icon: Medal,
+        icon: "Medal",
         image: "https://images.unsplash.com/photo-1523240715639-655b3ff15d68?q=80&w=2070&auto=format&fit=crop",
         featured: true,
         memberCount: "40",

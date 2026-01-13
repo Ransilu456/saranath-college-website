@@ -55,8 +55,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
-      <body className="bg-slate-50 text-slate-600 antialiased selection:bg-amber-100 selection:text-amber-900 flex flex-col min-h-screen font-sans">
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
+      <body suppressHydrationWarning className="bg-slate-50 text-slate-600 antialiased selection:bg-amber-100 selection:text-amber-900 flex flex-col min-h-screen font-sans">
         {/* <ToastProvider> */}
         <Header />
         {children}

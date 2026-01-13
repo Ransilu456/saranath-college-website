@@ -4,11 +4,12 @@ import EventDetailsClient from "./EventDetailsClient";
 import { Metadata } from 'next';
 
 type Props = {
-    params: { id: string }
+    params: Promise<{ id: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const event = events.find((e) => e.id === params.id);
+    const { id } = await params;
+    const event = events.find((e) => e.id === id);
     if (!event) return { title: 'Event Not Found' };
 
     return {
@@ -22,8 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function EventDetailsPage({ params }: Props) {
-    const event = events.find((e) => e.id === params.id);
+export default async function EventDetailsPage({ params }: Props) {
+    const { id } = await params;
+    const event = events.find((e) => e.id === id);
 
     if (!event) {
         notFound();

@@ -3,7 +3,7 @@ export interface Program {
     title: string;
     category: string;
     description: string;
-    fullDescription: string; // HTML
+    fullDescription: string; 
     image: string;
     link: string;
     grades?: string;

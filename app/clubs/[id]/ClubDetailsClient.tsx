@@ -1,14 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Clock, MapPin, User, Calendar } from "lucide-react";
+import { ArrowLeft, Clock, MapPin, User, Calendar, Camera, Plane, Palette, Sprout, BookOpen, Microscope, Music, Monitor, Globe, Gavel, HeartHandshake, Medal, LucideIcon, Search } from "lucide-react";
 
 interface ClubDetailsClientProps {
     club: any;
 }
 
+const iconMap: Record<string, LucideIcon> = {
+    Camera, Plane, Palette, Sprout, BookOpen,
+    Microscope, Music, Monitor, Globe, Gavel,
+    HeartHandshake, Medal
+};
+
 export default function ClubDetailsClient({ club }: ClubDetailsClientProps) {
-    const Icon = club.icon;
+    const Icon = iconMap[club.icon] || Search; // Fallback to Search
     return (
         <div className="bg-slate-50 min-h-screen">
             {/* Hero */}
@@ -31,6 +37,7 @@ export default function ClubDetailsClient({ club }: ClubDetailsClientProps) {
                             <span className="bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full">{club.category}</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-4">
+                            <Icon className="inline-block w-8 h-8 md:w-16 md:h-16 mr-3 -mt-2 opacity-80" />
                             {club.title}
                         </h1>
                         <p className="text-xl text-slate-200 max-w-2xl">

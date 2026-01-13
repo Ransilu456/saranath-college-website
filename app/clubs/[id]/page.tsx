@@ -4,11 +4,12 @@ import ClubDetailsClient from "./ClubDetailsClient";
 import { Metadata } from 'next';
 
 type Props = {
-    params: { id: string }
+    params: Promise<{ id: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const club = clubs.find((c) => c.id === params.id);
+    const { id } = await params;
+    const club = clubs.find((c) => c.id === id);
     if (!club) return { title: 'Club Not Found' };
 
     return {
@@ -22,8 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function ClubDetailsPage({ params }: Props) {
-    const club = clubs.find((c) => c.id === params.id);
+export default async function ClubDetailsPage({ params }: Props) {
+    const { id } = await params;
+    const club = clubs.find((c) => c.id === id);
 
     if (!club) {
         return notFound();

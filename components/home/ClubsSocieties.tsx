@@ -1,14 +1,15 @@
 import Link from "next/link";
-import { ArrowRight, Camera, Plane, Palette, Sprout, BookOpen, Microscope } from "lucide-react";
+import { ArrowRight, Plane, Camera, Palette, Sprout, BookOpen, Microscope, Music, Monitor, Globe, Gavel, HeartHandshake, Medal, LucideIcon } from "lucide-react";
 import { clubs } from "@/data/clubs";
 
-export default function ClubsSocieties() {
-    // Select specific clubs to feature on the homepage
-    const featuredClubs = clubs.filter(c => c.featured);
-    // If not enough featured, take the first 3
-    const displayClubs = featuredClubs.length >= 3 ? featuredClubs.slice(0, 5) : clubs.slice(0, 5);
+const iconMap: Record<string, LucideIcon> = {
+    Camera, Plane, Palette, Sprout, BookOpen,
+    Microscope, Music, Monitor, Globe, Gavel,
+    HeartHandshake, Medal
+};
 
-    // We'll manually layout the grid based on the design, picking specific indices or IDs for layout variety
+export default function ClubsSocieties() {
+
     const manualLayout = {
         main: clubs.find(c => c.id === "media-unit") || clubs[0],
         side: clubs.find(c => c.id === "aviation") || clubs[1],
@@ -16,6 +17,8 @@ export default function ClubsSocieties() {
         bottom2: clubs.find(c => c.id === "scouts") || clubs[9],
         bottom3: clubs.find(c => c.id === "science-union") || clubs[2],
     };
+
+    const MainIcon = iconMap[manualLayout.main.icon] || Plane;
 
     return (
         <section className="py-24 bg-slate-950 relative overflow-hidden" id="clubs">
@@ -53,10 +56,10 @@ export default function ClubsSocieties() {
                             alt={manualLayout.main.title}
                             className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
                         <div className="relative z-10 p-8 flex flex-col h-full justify-end">
                             <div className="w-10 h-10 rounded-lg bg-amber-500 text-slate-900 flex items-center justify-center mb-4 shadow-lg shadow-amber-500/20">
-                                <manualLayout.main.icon className="w-5 h-5" />
+                                <MainIcon className="w-5 h-5" />
                             </div>
                             <h3 className="text-2xl font-semibold text-white mb-2">
                                 {manualLayout.main.title}
@@ -70,7 +73,7 @@ export default function ClubsSocieties() {
                     {/* Side Card */}
                     <div className="md:col-span-5 lg:col-span-4 relative group overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-8 hover:border-amber-500/30 transition-colors">
                         <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity">
-                            <Plane className="w-[120px] h-[120px] text-slate-500 rotate-12" strokeWidth={1} />
+                            <Plane className="w-30 h-30 text-slate-500 rotate-12" strokeWidth={1} />
                         </div>
                         <div className="relative z-10 h-full flex flex-col justify-between">
                             <div>
@@ -91,30 +94,33 @@ export default function ClubsSocieties() {
                     </div>
 
                     {/* Bottom Row */}
-                    {[manualLayout.bottom1, manualLayout.bottom2, manualLayout.bottom3].map((club, idx) => (
-                        <div key={idx} className="md:col-span-4 relative group rounded-3xl bg-slate-900 border border-slate-800 p-6 hover:bg-slate-800 transition-all">
-                            <div className="flex items-start gap-4">
-                                <div className={`w-12 h-12 rounded-xl bg-white/5 text-white flex items-center justify-center border border-white/10 shrink-0`}>
-                                    <club.icon className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="text-lg font-semibold text-white mb-1">
-                                        {club.title}
-                                    </h3>
-                                    <p className="text-xs text-slate-400 leading-relaxed mb-3 line-clamp-2">
-                                        {club.description}
-                                    </p>
-                                    <div className="flex -space-x-2">
-                                        <div className="w-6 h-6 rounded-full border border-slate-800 bg-slate-700"></div>
-                                        <div className="w-6 h-6 rounded-full border border-slate-800 bg-slate-600"></div>
-                                        <div className="w-6 h-6 rounded-full border border-slate-800 bg-slate-500 flex items-center justify-center text-[8px] text-white">
-                                            +{club.memberCount || "10"}
+                    {[manualLayout.bottom1, manualLayout.bottom2, manualLayout.bottom3].map((club, idx) => {
+                        const ClubIcon = iconMap[club.icon] || Plane;
+                        return (
+                            <div key={idx} className="md:col-span-4 relative group rounded-3xl bg-slate-900 border border-slate-800 p-6 hover:bg-slate-800 transition-all">
+                                <div className="flex items-start gap-4">
+                                    <div className={`w-12 h-12 rounded-xl bg-white/5 text-white flex items-center justify-center border border-white/10 shrink-0`}>
+                                        <ClubIcon className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-white mb-1">
+                                            {club.title}
+                                        </h3>
+                                        <p className="text-xs text-slate-400 leading-relaxed mb-3 line-clamp-2">
+                                            {club.description}
+                                        </p>
+                                        <div className="flex -space-x-2">
+                                            <div className="w-6 h-6 rounded-full border border-slate-800 bg-slate-700"></div>
+                                            <div className="w-6 h-6 rounded-full border border-slate-800 bg-slate-600"></div>
+                                            <div className="w-6 h-6 rounded-full border border-slate-800 bg-slate-500 flex items-center justify-center text-[8px] text-white">
+                                                +{club.memberCount || "10"}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </div>
         </section>
