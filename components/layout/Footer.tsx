@@ -120,7 +120,7 @@ export default function Footer() {
                                 <MapPin className="w-5 h-5 text-amber-600 shrink-0" />
                                 <span>
                                     123 School Avenue, <br />
-                                    Colombo 07, Sri Lanka
+                                    Kuliyapitiya 01, Sri Lanka
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">
@@ -137,11 +137,11 @@ export default function Footer() {
 
                 <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs italic">
                     <div className="flex flex-col md:flex-row items-center gap-4">
-                        <p>© 2024 Saranath College. All rights reserved.</p>
+                        <p>© 2026 Saranath College. All rights reserved.</p>
                         <div className="hidden md:block w-px h-4 bg-slate-800"></div>
                         <div className="flex items-center gap-2 group">
-                            <span className="text-slate-500 not-italic">Developed by</span>
-                            <span className="text-slate-300 font-semibold not-italic group-hover:text-amber-500 transition-colors">Agradhi Media Unit</span>
+                            <span className="text-slate-500 not-italic">Developed by </span>
+                            <span className="text-slate-300 font-semibold not-italic group-hover:text-amber-500 transition-colors">Keshan Ransilu from Agradhi Media Unit</span>
                             <img
                                 src="/logos/Agradhi.png"
                                 alt="Agradhi Media Logo"

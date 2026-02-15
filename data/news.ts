@@ -12,9 +12,9 @@ export interface NewsItem {
 
 export const news: NewsItem[] = [
     {
-        id: "al-results-2023",
+        id: "al-results-2025",
         title: "Saranath Students Top Island Rankings in GCE A/L",
-        date: "Oct 12, 2024",
+        date: "Oct 12, 2026",
         category: "Academics",
         excerpt: "Exceptional performance by the 2023 batch with 15 students achieving 3As in the Physical Science stream.",
         content: `
@@ -31,9 +31,9 @@ export const news: NewsItem[] = [
         preview: true
     },
     {
-        id: "colors-night-2024",
+        id: "colors-night-2026",
         title: "Colors Night 2024: Celebrating Sportsmanship",
-        date: "Sep 28, 2024",
+        date: "Sep 28, 2026",
         category: "Sports",
         excerpt: "The annual Colors Night was held at the Main Hall, graced by the Minister of Sports. Over 200 sportsmen were recognized.",
         content: `
@@ -50,13 +50,13 @@ export const news: NewsItem[] = [
         preview: true
     },
     {
-        id: "science-day-2024",
-        title: "Annual Science Day 'Eureka 2024'",
-        date: "Sep 15, 2024",
+        id: "science-day-2026",
+        title: "Annual Science Day 'Something 2026'",
+        date: "Sep 15, 2026",
         category: "Events",
         excerpt: "Showcasing innovation and scientific inquiry, the Science Union presented over 50 projects at the annual exhibition.",
         content: `
-            <p>'Eureka 2024', the annual Science Day of Saranath College, captivated visitors with a display of student innovation and scientific inquiry. Organized by the Science Union, the event featured over 50 projects ranging from robotics and renewable energy solutions to biological models.</p>
+            <p>'Something 2026', the annual Science Day of Saranath College, captivated visitors with a display of student innovation and scientific inquiry. Organized by the Science Union, the event featured over 50 projects ranging from robotics and renewable energy solutions to biological models.</p>
 
             <p>The highlight of the exhibition was the 'Eco-City' model presented by the Grade 10 students, which demonstrated a self-sustaining urban ecosystem powered by solar and wind energy. The project received special commendation from the guest judges from the University of Moratuwa.</p>
 
@@ -65,9 +65,9 @@ export const news: NewsItem[] = [
         image: "https://images.unsplash.com/photo-1567427018141-0584cfcbf1b8?q=80&w=2070&auto=format&fit=crop"
     },
     {
-        id: "debating-champ-2024",
+        id: "debating-champ-2026",
         title: "Debating Team wins National Championship",
-        date: "Aug 22, 2024",
+        date: "Aug 22, 2026",
         category: "Co-Curricular",
         excerpt: "The English Debating Team secured the championship trophy at the National Schools Debating Tournament.",
         content: `

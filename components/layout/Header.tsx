@@ -50,7 +50,7 @@ export default function Header() {
                                     Saranath College
                                 </h1>
                                 <span className="text-[10px] md:text-xs font-medium text-amber-600 uppercase tracking-widest mt-1">
-                                    Est. 1924 | Colombo, Sri Lanka
+                                    Est. 1838 | Kuliyapitiya, Sri Lanka
                                 </span>
                             </div>
                         </Link>

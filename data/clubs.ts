@@ -20,7 +20,7 @@ export interface Club {
 export const clubs: Club[] = [
     {
         id: "media-unit",
-        title: "Media Unit",
+        title: "Agradhi Media Unit",
         category: "Co-Curricular",
         description: "The voice of Saranath. Covering events, producing documentaries, and broadcasting live updates since 1995.",
         fullDescription: `
@@ -32,9 +32,9 @@ export const clubs: Club[] = [
         image: "https://images.unsplash.com/photo-1516934024742-b461fba47600?q=80&w=2070&auto=format&fit=crop",
         featured: true,
         memberCount: "50+",
-        president: "S. Perera",
-        secretary: "D. Gunawardena",
-        teacherInCharge: "Mr. T. Rajapaksa",
+        president: "S. Shalitha",
+        secretary: "I don't know",
+        teacherInCharge: "Miss. Dilhani Navarathna",
         meetingTime: "Wednesdays 2:30 PM",
         location: "Media Studio",
         activities: ["Event Coverage", "Announcing Workshops", "Photography Exhibitions", "Short Film Production"]

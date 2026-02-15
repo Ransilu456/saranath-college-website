@@ -59,7 +59,7 @@ export default function AcademicStreams() {
                     </div>
 
                     {/* Right Side: Stream Details Display */}
-                    <div className="w-full lg:w-3/5 min-h-[600px] relative">
+                    <div className="w-full lg:w-3/5 min-h-150 relative">
                         <div
                             key={activeStream.id}
                             className="bg-white rounded-[3rem] border border-slate-100 shadow-2xl shadow-slate-200/50 p-8 md:p-12 animate-in fade-in slide-in-from-right-8 duration-700 h-full flex flex-col"
@@ -103,12 +103,12 @@ export default function AcademicStreams() {
                             </div>
 
                             {/* Content Section */}
-                            <div className="flex-grow">
+                            <div className="grow">
                                 <h3 className="text-3xl font-serif font-bold text-slate-900 mb-6">
                                     Exploring {activeStream.title}
                                 </h3>
                                 <p className="text-slate-600 leading-relaxed mb-10 text-lg italic font-light">
-                                    "{activeStream.description.split('.')[0]}."
+                                    &quot;{activeStream.description.split('.')[0]}.&quot;
                                 </p>
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 mb-12">

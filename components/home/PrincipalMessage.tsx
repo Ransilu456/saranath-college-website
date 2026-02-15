@@ -6,18 +6,18 @@ export default function PrincipalMessage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row gap-16 items-center">
                     <div className="w-full md:w-5/12 relative group">
-                        <div className="aspect-[3/4] rounded-lg overflow-hidden border border-slate-200 shadow-2xl relative z-10">
+                        <div className="aspect-3/4 rounded-lg overflow-hidden border border-slate-200 shadow-2xl relative z-10">
                             <img
                                 src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
                                 alt="Principal"
                                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                         </div>
-                        <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-amber-50 rounded-full -z-0"></div>
-                        <div className="absolute -top-6 -left-6 w-48 h-48 bg-slate-50 rounded-full -z-0"></div>
+                        <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-amber-50 rounded-full z-0"></div>
+                        <div className="absolute -top-6 -left-6 w-48 h-48 bg-slate-50 rounded-full z-0"></div>
                         <div className="absolute bottom-8 left-8 z-20 bg-white/95 backdrop-blur p-4 rounded shadow-lg border-l-4 border-amber-500 max-w-[200px]">
                             <p className="text-lg font-serif font-semibold text-slate-900">
-                                Mr. K. Perera
+                                Mr. R.M.C Randeniya
                             </p>
                             <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">
                                 Principal
@@ -37,10 +37,10 @@ export default function PrincipalMessage() {
                         </h2>
                         <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-light">
                             <p>
-                                "Welcome to Saranath College. For over 100 years, we have stood
+                                &quot;Welcome to Saranath College. For over 100 years, we have stood
                                 as a beacon of education in Sri Lanka. Our mission goes beyond
                                 textbooks; we strive to mold disciplined, honorable, and capable
-                                young men who will serve our motherland with distinction."
+                                young men who will serve our motherland with distinction.&quot;
                             </p>
                             <p>
                                 We continue to adapt to the changing world while holding fast to

@@ -1,4 +1,4 @@
-import { Atom, Divide, Check, Dna, BarChart3, LucideIcon, Calculator, Cpu, Globe, Scale, BookOpen, HeartPulse } from "lucide-react";
+import { Atom, Dna, BarChart3, LucideIcon, Cpu, BookOpen } from "lucide-react";
 
 export interface AcademicStream {
     id: string;
@@ -22,7 +22,7 @@ export const streams: AcademicStream[] = [
         subjects: ["Combined Mathematics", "Physics", "Chemistry / ICT"],
         image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop",
         careerPaths: ["Engineering", "Computer Science", "Data Science", "Physics", "Architecture", "Aviation"],
-        headOfSection: "Mr. K. Weerasinghe"
+        headOfSection: "Mr. N. Nawarathna"
     },
     {
         id: "bio",
@@ -33,7 +33,7 @@ export const streams: AcademicStream[] = [
         subjects: ["Biology", "Chemistry", "Physics / Agriculture"],
         image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop",
         careerPaths: ["Medicine", "Biotechnology", "Microbiology", "Agriculture", "Environmental Science", "Genetics"],
-        headOfSection: "Mrs. S. Gamage"
+        headOfSection: "Mrs. N. Nawarathna"
     },
     {
         id: "commerce",
